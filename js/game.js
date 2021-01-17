@@ -334,7 +334,7 @@ function endOfTheGame(data) {
     let winnerPopUp = document.getElementById("winner-screen");
     let menuButton = document.getElementById("back-to-menu");
 
-    messageWinner.innerHTML = "CONGRATULATION " + data.winner + " it's a WIN !";
+    messageWinner.innerHTML = "CONGRATULATION " + data.winner + ", you WIN !";
     winnerPopUp.style.display = "initial";
     menuButton.addEventListener("click", backToMenu);
 }

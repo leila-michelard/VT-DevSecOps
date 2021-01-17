@@ -17,7 +17,7 @@ function joinRoom() {
             switch(data.status) {
                 case 404: 
                     if(!join){
-                        alert("This Room ID doesn't exist or The Room started without you");
+                        alert("This Room ID doesn't exist / The Room started without you");
                         join = true;
                     }
                     break;

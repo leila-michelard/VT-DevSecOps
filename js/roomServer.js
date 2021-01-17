@@ -9,7 +9,7 @@ class RoomServer {
         this.ws = new WebSocket('wss://blindtest-chaf.herokuapp.com/');
         this.msgHandlers = {};
         this.keepAlive();
-        this.ws.onopen = () => { console.log("Connected to room server"); };
+        this.ws.onopen = () => { console.log("Connected to room server, it's ok !"); };
         this.ws.onmessage = (msg) => { this.onMsg(msg.data); };
     }
 
