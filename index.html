@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+    <link rel="manifest" href="./favicon/site.webmanifest">
+    <title>Blindtest</title>
+
+    <link rel="stylesheet" href="./style/style.css">
+    <script src="./js/roomServer.js"></script>
+</head>
+
+<body>
+    <div id="menu">
+        <div id="app-title">Blindtest</div>
+        <div id="room-id"></div>
+        <divxz>
+            <div style="width:1px;height:1px;">
+                <div data-video="OiRfhcpWZFc" data-autoplay="0" data-loop="1" id="youtube-audio1"></div>
+            </div>
+        </div>
+    </div>
+    <div id="app-body">
+        <div id="text" style="font-weight:bold"></div>
+        <div id="submit-playlist">
+            <label for="submit-playlist-id" id="label-submit" >https://www.youtube.com/playlist?list=</label>
+            <input type="text" id="submit-playlist-id" value="PLlYKDqBVDxX1Q_jLy_Olg_VlQpl_xZEX1">
+        </div>
+        <div id="definitionTimer">
+            <div style="padding-bottom: 20px;">
+                <label id="texteTimer">Duration of songs (in sec) :</label>
+                <input id="timerField" type="number" min="20" max="60"  value="20" name="timerField" style="text-align: center;">
+            </div>
+            <div style="padding-bottom: 30px;">
+                <label id="texteWinScore">Score to achieve :</label>
+                <input id="winnerScoreField" type="number" min="2" max="100"  value="10" name="winnerScoreField" style="text-align: center;">
+            </div>
+            <button id="submit-playlist-button">Let's gooooo</button>
+       </div>
+        <div id="next-music-div">
+            <button id="next-music-button" title="Reveal answer">Next</button>
+        </div>
+        <div id="table-players-div">
+            <table id="table-players">
+                <tbody>
+                    <tr>
+                        <th>Players</th>
+                        <th>Score</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="app"> </div>
+        <img id="gif-dance" src="./favicon/dance_cool.gif">
+        <div id="reponse-div">
+            <label for="reponseid" id="texteReponse">Response :</label>
+            <input type="text" id="reponseField" name="reponse">
+            <button id="boutonReponse" type="submit">Submit</button>
+       </div>
+
+       <div id="tableau-div">
+           <!-- <p style="font-weight:bold">Réponses :</p> -->
+           <table id = "tableauReponse">
+               <tbody>
+                    <tr>
+                        <th>Players</th>
+                        <th>Response</th>
+                        <th>Correct or not</th>
+                        <th>Points</th>
+                    </tr>
+                </tbody>
+           </table>
+       </div>
+    </div>
+
+    <div id="login-screen">
+        <div id="login-screen-background"></div>
+        <div id="login-popup">
+            <h1>Create a Room</h1>
+            <div id ="pseudo-div">
+                <!--<label for="new-room-userid">Pseudo </label>-->
+                <input type="text" placeholder="Pseudo" id="new-room-userid" value="">
+                <button id="new-room-button">Let's Go !</button>
+            </div>
+            <div id="trait"></div>
+            <h1>Join an already existing Room</h1>
+            <div id="join-room-div">
+               <!-- <label for="join-room-roomid">Room </label>-->
+                <input type="text" placeholder="Room" id="join-room-roomid" value="">
+            </div>
+            <div id ="pseudo-div">
+                <!--<label for="join-romm-userid">Pseudo </label>-->
+                <input type="text" placeholder="Pseudo" id="join-room-userid" value="">
+                <button id="join-room-button">Join a room</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="winner-screen">
+        <div id="winner-screen-background"></div>
+        <div id="winner-popup">
+            <h1 id="winnerCongrats"></h1>
+            <img id="victory-gif" src="./favicon/victory.gif">
+            <button id="back-to-menu">Menu</button>
+        </div>
+    </div>
+    <script src="./js/game.js"></script>
+    <script src="./js/init.js"></script>
+</body>
+    
+</html>

@@ -1,0 +1,516 @@
+*{
+    font-family: system-ui;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    overscroll-behavior: none;
+    user-zoom: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    display: grid;
+    grid-template-rows: 60px calc(100% - 60px);
+    grid-template-areas:
+        "menu"
+        "body";
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    user-select: none;
+    background-color: white;
+}
+
+#app-body {
+    grid-area: body;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    position:relative;
+    grid-template-rows: 200px auto auto;
+    grid-template-columns: auto auto;
+    grid-template-areas:
+        "text . players"
+        "reponse submit players"
+        "next . bottom";
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#menu {
+    position: relative;
+    box-sizing: border-box;
+    grid-area: menu;
+    height: 70px;
+    background:  no-repeat url(banner.png);
+    border-bottom: 1px solid #212d44;
+    -webkit-box-shadow: 0px 4px 11px 0px rgba(61, 61, 61, 0.75);
+    -moz-box-shadow: 0px 4px 11px 0px rgba(61, 61, 61, 0.75);
+    box-shadow: 0px 4px 11px 0px rgba(61, 61, 61, 0.75);
+}
+
+#menu #app-title {
+    width: 100%;
+    min-width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    color: white;
+    font-size: 60px;
+    font-weight: bold;
+}
+
+#menu #room-id {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+
+    display: flex;
+    align-content: center;
+    justify-content: center;
+
+    color: #070707;
+    font-size: 40px;
+    padding-top: 10px;
+}
+
+table {
+    font-size: 20px;
+}
+th {
+    border: 1px solid #0066ff;
+    text-align: center;
+    width: 200px;
+    border-radius: 30px;
+}
+td {
+    text-align: center;
+    width: 200px;
+}
+
+#table-players {
+    display: none;
+}
+
+/*************** Winner Pop up *************/
+#winner-screen {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+#winner-screen-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background-color: black;
+    opacity: 0.75;
+}
+
+#winner-popup {
+    position: absolute;
+    margin: auto;
+    top: 25%;
+    left: 0px;
+    right: 0px;
+    width: 450px;
+    background-color: white;
+    box-shadow: 0px 4px 20px rgba(32, 32, 32, 0.06);
+    border-radius: 13px;
+
+}
+
+#winner-popup h1 {
+    text-align: center;
+    color: #0066ff;
+    font-size: 3em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/*************** Login Pop up *************/
+
+#login-screen {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+#login-screen-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background-color: black;
+    opacity: 0.75;
+}
+
+#login-popup {
+    position: absolute;
+    margin: auto;
+    top: 25%;
+    left: 0px;
+    right: 0px;
+    width: 450px;
+    background-color: white;
+    box-shadow: 0px 4px 20px rgba(32, 32, 32, 0.06);
+    border-radius: 13px;
+
+}
+
+#login-popup h1 {
+    text-align: center;
+    color: #0066ff;
+    font-size: 3em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#login-popup #trait {
+    margin-top: 30px;
+    border-bottom:2px solid black;
+}
+
+#join-room-div #pseudo-div {
+    margin-bottom: 50px;
+    text-align: center;
+    border-radius: 13px;
+}
+
+input[type="text"] {
+    width: 367px;
+    height: 30px;   
+    /* 1 white */
+    background: #FFFFFF;
+    width: 50%;
+    /* 3 gray */
+    border: 1px solid #D0D4D9;
+    box-sizing: border-box;
+    border-radius: 12px;
+}
+
+input[type="number"] {
+    width: 367px;
+    height: 30px;   
+    /* 1 white */
+    background: #FFFFFF;
+    width: 50%;
+    /* 3 gray */
+    border: 1px solid #D0D4D9;
+    box-sizing: border-box;
+    border-radius: 12px;
+}
+
+#join-room-div #pseudo-div label {
+    font-size: 2em;
+    border-radius: 13px;
+    margin-top: 20px;
+}
+
+#join-room-div #pseudo-div input[type="text"] {
+    height: 1.5em;
+    border-radius: 13px;
+}
+
+
+#login-popup #join-room-button {
+    display: block;
+    margin: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    height: 2em;
+    width: 11em;
+
+    border: none;
+    border-radius: 5px;
+    border-image: linear-gradient(to right, #0066ff, #df39bc);
+	background: linear-gradient(to right, #0066ff, #df39bc);
+    color: white;
+    font-size: 1.5em;
+    border-radius: 13px;
+}
+
+#login-popup #new-room-button {
+    display: block;
+    margin: 5px;
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-top: 10px;
+    height: 2em;
+    width: 11em;
+
+    border: none;
+    border-radius: 5px;
+    border-image: linear-gradient(to right, #0066ff, #df39bc);
+	background: linear-gradient(to right, #0066ff, #df39bc);
+    color: white;
+    font-size: 1.5em;
+    border-radius: 13px;
+}
+
+#login-popup #new-room-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+#login-popup #new-room-userid {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+#login-popup #join-room-roomid {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+#login-popup #join-room-userid {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+#app-body button {
+    color: white;
+    width: 100px;
+    height: 60px;
+    background-repeat: no-repeat;
+    background-size: 140px 70px;
+    background-position: 0px 0px;
+    border: none;
+    padding: 0;
+    margin: 0;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 12px;
+}
+
+#next-music-div {
+   position: absolute;
+   margin-top: 100px;
+   margin-left: 150px;
+   grid-area: next;
+}
+
+#next-music-button {
+    position: absolute;
+    display: none;
+    left: -27%;
+    border-image: linear-gradient(to right, #0066ff, #df39bc);
+    background: linear-gradient(to right, #0066ff, #df39bc);
+    font-size: 20px;
+}
+
+#reponse-div {
+    margin-left: 150px;
+    position: absolute;
+    margin-top: 300px;
+}
+
+#boutonReponse {
+    position:absolute;
+    border-image: linear-gradient(to right, #0066ff, #df39bc);
+	background: linear-gradient(to right, #0066ff, #df39bc);
+    display: none;
+    left: 50%;
+    top : 110%;
+    grid-area: submit;
+    font-size: 20px;
+}
+
+#reponseField {
+    display: none;
+    left: 42%;
+    top: 270px;
+    padding-right: 20px;
+    width: 200px;
+    grid-area: reponse;
+}
+
+#texteReponse {
+    display: none;
+    left: 35%;
+    top: 270px;
+    padding-right: 20px;
+    grid-area: reponse;
+}
+
+#tableau-div {
+    position : absolute;
+    margin-top:30px;
+    grid-area: reponse;
+}
+
+#tableauReponse {
+    font-size: 20px;
+    display: table;
+    display:none;
+    left: 27%;
+    top: 50%;
+}
+
+#tableauReponse td {
+    text-align: center;
+    align-content: center;
+}
+
+#submit-playlist {
+    grid-area: text;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
+
+#text {
+    box-sizing: border-box;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+    grid-area: text;
+    margin-left: 220px;
+}
+
+/* Sets the containers height and width */
+.base-timer {
+    position: relative;
+    height: 300px;
+    width: 300px;
+  }
+  
+  /* Removes SVG styling that would hide the time label */
+  .base-timer__circle {
+    fill: none;
+    stroke: none;
+  }
+  
+  /* The SVG path that displays the timer's progress */
+  .base-timer__path-elapsed {
+    stroke-width: 7px;
+    stroke: grey;
+  }
+
+  .base-timer__label {
+    position: absolute;
+    
+    /* Size should match the parent container */
+    width: 300px;
+    height: 300px;
+    
+    /* Keep the label aligned to the top */
+    top: 0;
+    
+    /* Create a flexible box that centers content vertically and horizontally */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    /* Sort of an arbitrary number; adjust to your liking */
+    font-size: 48px;
+  }
+
+  .base-timer__path-remaining {
+    /* Just as thick as the original ring */
+    stroke-width: 7px;
+  
+    /* Rounds the line endings to create a seamless circle */
+    stroke-linecap: round;
+  
+    /* Makes sure the animation starts at the top of the circle */
+    transform: rotate(90deg);
+    transform-origin: center;
+  
+    /* One second aligns with the speed of the countdown timer */
+    transition: 1s linear all;
+  
+    /* Allows the ring to change color when the color value updates */
+    stroke: currentColor;
+  }
+  
+  .base-timer__svg {
+    /* Flips the svg and makes the animation to move left-to-right */
+    transform: scaleX(-1);
+  }
+
+  .base-timer__path-remaining.green {
+    color: rgb(65, 184, 131);
+  }
+  .base-timer__path-remaining.orange {
+    color: orange;
+  }
+  
+  .base-timer__path-remaining.red {
+    color: red;
+  }
+
+  .base-timer__path-remaining.grey {
+    color: grey;
+  }
+#gif-dance {
+    display: none;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    padding-left: 200px;
+    grid-area: bottom;
+} 
+
+#victory-gif {
+    /* display: none; */
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+} 
+
+#back-to-menu {
+    display: block;
+    margin: 5px;
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-top: 10px;
+    height: 2em;
+    width: 11em;
+
+    border: none;
+    border-radius: 5px;
+    border-image: linear-gradient(to right, #0066ff, #df39bc);
+	background: linear-gradient(to right, #0066ff, #df39bc);
+    color: white;
+    font-size: 1.5em;
+    border-radius: 13px;
+}
+
+
+#table-players-div{
+    grid-area: players;
+}
+
+#definitionTimer{
+    display: none;
+    flex-direction: column;
+    grid-area: text;
+    margin-right: auto;
+    margin-left: auto;
+    align-content: left;
+    margin-top: 140px;
+}
+#app{
+    transform: scale(0.5);
+    grid-area: text;
+    margin-left: 150px;
+}
+#submit-playlist-button{
+    border-image: linear-gradient(to right, #0066ff, #df39bc);
+    background: linear-gradient(to right, #0066ff, #df39bc);
+    font-size: 20px;
+}
